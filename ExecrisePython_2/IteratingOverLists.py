@@ -45,19 +45,27 @@ class IterationsOverList():
         return list_reversed
 
 
-    def is_palindrome(self, string):
-        string_list = []
-        for i in string:
-            string_list.append(i)
-        num = len(string_list)
-        string2_list = []
-        for i in range(num):
-            string2_list.append(0)
-        j = 0
-        while j < num:
-            string2_list[num-j-1] = string_list[j]
-            j += 1
-        return string_list == string2_list
+    # def is_palindrome(self, string):
+    #     string_list = []
+    #     for i in string:
+    #         string_list.append(i)
+    #     num = len(string_list)
+    #     string2_list = []
+    #     for i in range(num):
+    #         string2_list.append(0)
+    #     j = 0
+    #     while j < num:
+    #         string2_list[num-j-1] = string_list[j]
+    #         j += 1
+    #     return string_list == string2_list
+
+    def check_palindrome(self, string):
+        for i in range(len(string)//2):
+            if string[i] != string[-1-i]:
+                return False
+        return True
+
+
 
 
     def is_palindrome_2(self, s):
@@ -70,5 +78,5 @@ if __name__ == "__main__":
     print(iterations_over_list.reverse_list("have a nice day"))
     print(iterations_over_list.compute_list_average(iterations_over_list.generate_list_power_minus_2(5)))
     print(iterations_over_list.generate_list_power_minus_2(30))
-    print(iterations_over_list.is_palindrome("tenet"))
+    print(iterations_over_list.check_palindrome("tenet"))
     print(iterations_over_list.is_palindrome_2("tenet"))
